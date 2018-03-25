@@ -32,8 +32,8 @@ def checkPermuataion(input1, input2):
 
 print checkPermuataion("water", "water")
 
-#------------------------------------------------
-#solution with quicksort
+# #------------------------------------------------
+# #solution with quicksort
 
 def quicksort(arr):
     if len(arr)<2:
@@ -49,13 +49,13 @@ def checkPermuataionQuickSort(input1, input2):
     if len(input1) != len(input2):
         return False
     else:
-        list1 = list(input1)
-        list2 = list(input2)
-        quicksort(list1)
-        quicksort(list2)
-        if list1 == list2:
+        # list1 = list(input1)
+        # list2 = list(input2)
+        quicksort(input1)
+        quicksort(input2)
+        if input1 == input2:
             return True
         else:
             return False
 
-print checkPermuataionQuickSort("water", "water")
+print checkPermuataionQuickSort("Water", "Water")
