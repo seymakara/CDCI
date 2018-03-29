@@ -47,17 +47,31 @@ class LinkedList:
             print current.data 
             current= current.next
 
-    def removeDups(self):
-        current = second = self.head 
+    # def removeDups(self):
+    #     current = second = self.head 
+
+    #     while current is not None:
+    #         while second.next is not None:
+    #             if second.next.data == current.data:
+    #                 second.next = second.next.next
+    #             else:
+    #                 second = second.next
+    #         second = current.next
+    #         current = current.next
+    
+    def removedupsHash(self): # removing duplicates using hashtable
+        newDict = {}
+        current = self.head
+        prev = None
 
         while current is not None:
-            while second.next is not None:
-                if second.next.data == current.data:
-                    second.next = second.next.next
-                else:
-                    second = second.next
-            second = current.next
-            current = current.next
+            if current.data in newDict:
+                prev.next = current.next
+                current = current.next #prec should stay same otherwise current and prev moves to the same spot
+            else:
+                newDict[current.data] = 1
+                prev = current
+                current = current.next
 
 l = LinkedList()
 l.insertEnd(15)
@@ -70,6 +84,6 @@ l.insertEnd(15)
 l.insertEnd(18)
 # l.delete(15)
 l.getList()
-l.removeDups()
+l.removedupsHash()
 print "=============="
 l.getList()
