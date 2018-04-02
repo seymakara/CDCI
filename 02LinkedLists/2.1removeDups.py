@@ -47,6 +47,20 @@ class LinkedList:
 
             return False
 
+    def findNode(self, k):
+        if self.head == None:
+            return None
+        
+        current = self.head
+        while current:
+            if current.data == k:
+                return current
+            current = current.next
+        
+    def returnHead(self):
+        return self.head
+
+
     # def removeDups(self):
     #     current = second = self.head 
 
