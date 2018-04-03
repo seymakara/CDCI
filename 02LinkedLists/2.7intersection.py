@@ -1,79 +1,46 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.size = 1
-        self.tail = None
-
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def insert(self, data):
-        node = Node(data)
-        node.next = self.head
-        self.head = node
-
-    def insertEnd(self, data):
-        node = Node(data)
-        if self.head == None:
-            self.head = node
-        else:
-            current = self.head
-            while current.next is not None:
-                current = current.next
-            current.next = node
-
-    def getList(self):
-        current  = self.head
-        while current:
-            print current.data 
-            current= current.next
-
-    def returnHead(self):
-        return self.head
-
-    def getTailandSize(self):
-        size = self.size
-        tail = self.tail
-        current = self.head
-        if self.head == None:
+class Solution(object):
+    
+    def getLength(self, head): 
+        if head == None:
+            return 0
+        
+        length = 0
+        current = head
+        
+        while current != None:
+            length = length + 1
+            current = current.next
+        return length
+    
+    # def getTail(self, head): # not necessary
+    #     if head == None:
+    #         return None
+        
+    #     current = head
+    #     while current.next != None:
+    #         current = current.next
+    #     return current
+        
+    def getIntersectionNode(self, headA, headB):
+        
+        if headA is None or headB is None:
             return None
-        while current.next is not None:
-            size += 1
-            current = current.next
+        
+        lengthA = self.getLength(headA)
+        lengthB = self.getLength(headB)
+        
+        
+        longer = headA if lengthA >= lengthB else headB
+        shorter = headB if lengthA >= lengthB else headA
+        
+        excess = abs(lengthA - lengthB)
+        
+        
+        while excess > 0 and longer is not None:
+            longer = longer.next
+            excess -= 1
             
-        return size
-        tail = current
-        return tail
-    
-    def getKthNode(self, k):
-        current = self.head
-        while k > 0 and current is not None:
-            current = current.next
-            k -= 1
-        return current
-
-def findIntersection(list1, list2):
-    if list1 is None or list2 is None:
-        return None
-    
-    result1 = getTailandSize(list1)
-    result2 = getTailandSize(list2)
-
-    if result1.tail != result2.tail:
-        return Null
-
-    else:
-        longer  = list1 if list1.size > list2.size else list2
-        shorter = list2 if list1.size > list2.size else list1
-
-        longer = getKthNode(longer, abs(result1.size - result2.size)) # to chop of the the excess nodes in longer one
-
-        while shorter != longer:
+        while shorter is not None and shorter != longer:
             shorter = shorter.next
             longer = longer.next
-        return shorter # return either one
-
-
-
+        return shorter
