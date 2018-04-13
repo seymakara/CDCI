@@ -15,12 +15,10 @@ def inorderSuccessor(root, X):
     succ = None
     while root is not None:
         if (X.data < root.data):
-            succ = root;
+            succ = root
             root = root.left
         elif (X.data > root.data):
             root = root.right
-        else:
-           break
         return succ
        
 def leftMostChild(n):
