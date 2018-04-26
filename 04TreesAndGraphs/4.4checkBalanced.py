@@ -1,3 +1,6 @@
+ #Implement a function to check if a binary tree is balanced. For the purposes of this question, 
+ # a balanced tree is de ned to be a tree such that the heights of the two subtrees of any node never differ by more than one.
+
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
