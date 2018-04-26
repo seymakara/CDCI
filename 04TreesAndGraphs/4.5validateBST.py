@@ -1,3 +1,5 @@
+# Implement a function to check if a binary tree is a binary search tree.
+
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
