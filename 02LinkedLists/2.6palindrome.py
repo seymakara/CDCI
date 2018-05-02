@@ -45,7 +45,7 @@ class LinkedList:
             slow = slow.next
             fast = fast.next.next
         
-        if fast is not None:
+        if fast is not None: # which means list is not an even number
             slow = slow.next #(skips the middle node, when the list has odd number of nodes)
         
         while slow:
