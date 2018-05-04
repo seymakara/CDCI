@@ -3,10 +3,9 @@
 # Example:
 # Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
 
+# _______SORTED LIST SOLUTIOON______
 class Solution(object):
     def intersect(self, nums1, nums2):
-
-        # SORTED LIST SOLUTIOON
         nums1.sort()
         nums2.sort()
         
@@ -28,3 +27,24 @@ class Solution(object):
                 pointer2 += 1
         return res
 
+    #_______HASHMAP SOLUTION________
+
+    class Solution(object):
+    def intersect(self, nums1, nums2):
+        dict = {}
+        res = []
+        
+        if len(nums1) > len(nums2):
+            big = nums1
+            small = nums2
+        big = nums2
+        small = nums1
+        
+        for num in small:
+            dict[num] = dict.get(num, 0) + 1
+        
+        for num in big:
+            if num in dict and dict[num] > 0:
+                res.append(num)
+                dict[num] -=1
+        return res
