@@ -5,8 +5,8 @@ class Solution(object):
         p = x
         q = 0
         
-        while p >= 10:
+        while p >= 1:
             q *= 10
             q += p%10
             p /= 10
-        return q == x/10 and p == x%10 # q checks for the front, p checks for the back.
+        return q == x
