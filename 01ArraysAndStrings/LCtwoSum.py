@@ -11,7 +11,7 @@ def twoSum(nums, target):
 # hash map solution
 def twoSumHash(nums, target):
     newHash = {}
-    for i in range(len(nums)-1):
+    for i in range(len(nums)):
         complement = target - nums[i]
         if complement in newHash:
             return [i, complement]
