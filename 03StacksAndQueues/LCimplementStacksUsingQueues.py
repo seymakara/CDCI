@@ -15,7 +15,7 @@ class MyStack(object):
         self.queue = collections.deque()
 
     def push(self, x):
-        q = self.queue # NEDEN YENI BIR QUEUE YA EKLIYORUZ?
+        q = self.queue 
         q.append(x)
         
     def pop(self):
@@ -28,6 +28,3 @@ class MyStack(object):
 
     def empty(self):
         return len(self.queue) == 0
-
-    # def empty(self): WHY NOT THIS WORKS
-    #     return self.queue == []

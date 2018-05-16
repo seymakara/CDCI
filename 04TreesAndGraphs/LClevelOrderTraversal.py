@@ -35,17 +35,3 @@ class Solution(object):
             res[-(level+1)].append(root.val)
             self.dfs(root.left, level+1, res)
             self.dfs(root.right, level+1, res)
-    
-#     def levelOrderBottom(self, root):
-#         self.dfs(root, 0)
-        
-#     def dfs(self, root, level):
-#         res = []
-#         while root: 
-#             if len(res) < level + 1:
-#                 res.insert(0, [])
-#             res[level].append(root.val)
-#             self.dfs(root.left, level+1)
-#             self.dfs(root.right, level+1) 
-            
-#         return list(reversed(res))
